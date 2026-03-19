@@ -6,6 +6,7 @@
         {
             Jedi luke = new Jedi(60, 80, 35, 20, "Luke Skywalker");
             Console.WriteLine(luke);
+
         }
     }
 }
