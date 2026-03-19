@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Test3");
+            Jedi luke = new Jedi(60, 80, 35, 20, "Luke Skywalker");
+            Console.WriteLine(luke);
         }
     }
 }
