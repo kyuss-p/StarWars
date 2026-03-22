@@ -28,7 +28,7 @@ namespace StarWars
             }
         }
 
-        public Jedi(int forcePoints, int health, int attackPower, int defense, string name) : base(health, attackPower, defense, name)
+        public Jedi(int health, int attackPower, int defense, string name, int forcePoints) : base(health, attackPower, defense, name)
         {
             ForcePoints = forcePoints;
         }
@@ -45,14 +45,21 @@ namespace StarWars
 
             if (cost > _forcePoints)
             {
-                Console.WriteLine("Not enough force points to use special ability");
+                Console.WriteLine("Not enough Force Points to use Force Heal");
                 return;
             }
 
             ForcePoints -= cost;
             int healing = (int)(baseHeal * (1 + (ForcePoints / 100.0)));
-            Health = Math.Min(100, Health + healing);
-            Console.WriteLine($"{Name} used force healing and gains {healing} HP");
+            target.Health = Math.Min(100, target.Health + healing);
+            if (target == this)
+            {
+                Console.WriteLine($"{Name} used force healing and gains {healing} HP");
+            }
+            else
+            {
+                Console.WriteLine($"{Name} used force healing and heals {target.Name} for {healing} HP");
+            }
         }
 
         public override string ToString()
