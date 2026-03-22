@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace StarWars
+{
+    internal abstract class ForceUser : Character
+    {
+        protected ForceUser(int attackPower, int defense, string name) : base(attackPower, defense, name)
+        {
+
+        }
+
+        public abstract void ForceAbility(Character target);
+    }
+}

@@ -4,8 +4,18 @@
     {
         static void Main(string[] args)
         {
-            Jedi luke = new Jedi(60, 80, 35, 20, "Luke Skywalker");
-            Console.WriteLine(luke);
+            Jedi lukeSkywalker = new Jedi(75, 60, "Luke Skywalker", 50);
+            Sith darthVader = new Sith(85, 75, "Darth Vader", 60);
+
+            darthVader.Attack(lukeSkywalker);
+            lukeSkywalker.Attack(darthVader);
+            darthVader.ForceAbility(lukeSkywalker);
+            darthVader.Attack(lukeSkywalker);
+
+            Console.WriteLine();
+
+            Console.WriteLine(lukeSkywalker);
+            Console.WriteLine(darthVader);
 
         }
     }

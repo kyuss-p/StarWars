@@ -16,9 +16,15 @@ namespace StarWars
             set
             {
                 if (value < 0)
+                { 
+                    _health = 0;
+                }
+                else if (value > 100)
                 {
-                    _health = 80;
-                } else
+                    
+                    _health = 100;
+                }
+                else
                 {
                     _health = value;
                 }
@@ -34,13 +40,15 @@ namespace StarWars
             }
             set
             {
-                if (value < 1)
+                if (value < 0)
                 {
-                    _attackPower = 1;
-                } else if (value > 50)
+                    _attackPower = 0;
+                }
+                else if (value > 100)
                 {
-                    _attackPower = 50;
-                } else
+                    _attackPower = 100;
+                }
+                else
                 {
                     _attackPower = value;
                 }
@@ -59,9 +67,9 @@ namespace StarWars
                 if (value < 0)
                 {
                     _defense = 0;
-                } else if (value > 40)
+                } else if (value > 100)
                 {
-                    _defense = 40;
+                    _defense = 100;
                 } else
                 {
                     _defense = value;
@@ -71,17 +79,11 @@ namespace StarWars
 
         public string Name { get; set; }
 
-        public bool IsAlive
-        {
-            get
-            {
-                return _health > 0;
-            }
-        }
+        public bool IsAlive => Health > 0;
 
-        protected Character(int health, int attackPower, int defense, string name)
+        protected Character(int attackPower, int defense, string name)
         {
-            Health = health;
+            Health = 100;
             AttackPower = attackPower;
             Defense = defense;
             Name = name;
@@ -89,18 +91,20 @@ namespace StarWars
 
         public virtual void Attack(Character target)
         {
-            int damage = _attackPower - target._defense;
+            int damage = (int)(AttackPower * (75.0 / (100 + target.Defense)));
             damage = Math.Max(0, damage);
-            TakeDamage(damage);
             Console.WriteLine($"{Name} attacks {target.Name} for {damage} damage ");
+            target.TakeDamage(damage);
         }
 
         public void TakeDamage(int damage)
         {
-            _health -= Math.Max(0, _health - damage);
+            Health = Math.Max(0, Health - damage);
+            if (!IsAlive)
+            {
+                Console.WriteLine($"{Name} has died!");
+            }
         }
-
-        public abstract void SpecialAbility(Character target);
 
         public override string ToString()
         {
