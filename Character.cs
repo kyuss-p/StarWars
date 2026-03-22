@@ -104,7 +104,7 @@ namespace StarWars
 
         public override string ToString()
         {
-            return $"[{GetType().Name}] Name: {Name} | Health: {Health} | Attack Power: {AttackPower} | Defense: {Defense}";
+            return $"[{GetType().Name}] {Name} | Health: {Health} | Attack Power: {AttackPower} | Defense: {Defense}";
         }
     }
 }
