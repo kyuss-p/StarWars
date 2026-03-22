@@ -42,6 +42,7 @@ namespace StarWars
 
             int cost = 20;
             int baseHeal = 15;
+            int healthBefore = target.Health;
 
             if (cost > _forcePoints)
             {
@@ -52,13 +53,15 @@ namespace StarWars
             ForcePoints -= cost;
             int healing = (int)(baseHeal * (1 + (ForcePoints / 100.0)));
             target.Health = Math.Min(100, target.Health + healing);
+
+            int actualHeal = target.Health - healthBefore;
             if (target == this)
             {
-                Console.WriteLine($"{Name} used force healing and gains {healing} HP");
+                Console.WriteLine($"{Name} used force healing and gains {actualHeal} HP");
             }
             else
             {
-                Console.WriteLine($"{Name} used force healing and heals {target.Name} for {healing} HP");
+                Console.WriteLine($"{Name} used force healing and heals {target.Name} for {actualHeal} HP");
             }
         }
 
