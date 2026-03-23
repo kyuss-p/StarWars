@@ -91,6 +91,11 @@ namespace StarWars
 
         public virtual void Attack(Character target)
         {
+            if (!IsAlive)
+            {
+                return;
+            }
+
             int damage = (int)(AttackPower * (75.0 / (100 + target.Defense)));
             damage = Math.Max(0, damage);
             Console.WriteLine($"{Name} attacks {target.Name} for {damage} damage ");
@@ -103,6 +108,7 @@ namespace StarWars
             if (!IsAlive)
             {
                 Console.WriteLine($"{Name} has died!");
+                return;
             }
         }
 
