@@ -44,18 +44,17 @@ namespace StarWars
             }
 
             int cost = 20;
-            int baseDamage = 15;
-
             if (cost > RageLevel)
             {
                 Console.WriteLine("Rage Level not high enough to use Force Choke");
                 return;
             }
-
             RageLevel -= cost;
+
+            int baseDamage = 15;
             int damage = (int)(baseDamage * (1 + (RageLevel / 100.0)));
-            Console.WriteLine($"{Name} used Force Choke and deals {damage} damage to {target.Name}");
-            target.TakeDamage(Math.Max(0, target.Health - damage));
+            Console.WriteLine($"{Name} used Force Choke on {target.Name} and deals {damage} damage");
+            target.TakeDamage(damage);
         }
 
         public override string ToString()

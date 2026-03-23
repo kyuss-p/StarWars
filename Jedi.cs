@@ -43,29 +43,27 @@ namespace StarWars
             } 
 
             int cost = 20;
-            int baseHeal = 15;
-            int healthBefore = target.Health;
-
             if (cost > ForcePoints)
             {
                 Console.WriteLine("Not enough Force Points to use Force Heal");
                 return;
             }
-
             ForcePoints -= cost;
-            int healing = (int)(baseHeal * (1 + (ForcePoints / 100.0)));
 
+            int baseHeal = 15;
+            int healthBefore = target.Health;
+            int healing = (int)(baseHeal * (1 + (ForcePoints / 100.0)));
+            target.Health = Math.Min(100, target.Health + healing);
             int actualHeal = target.Health - healthBefore;
+
             if (target == this)
             {
                 Console.WriteLine($"{Name} used Force Healing and gains {actualHeal} HP");
             }
             else
             {
-                Console.WriteLine($"{Name} used Force Healing and heals {target.Name} for {actualHeal} HP");
+                Console.WriteLine($"{Name} used Force Healing on {target.Name} and heals {actualHeal} HP");
             }
-
-            target.TakeDamage(Math.Min(100, target.Health + healing));
         }
 
         public override string ToString()
