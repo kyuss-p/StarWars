@@ -25,7 +25,7 @@ namespace StarWars
             int cost = 15;
             if (cost > RageLevel)
             {
-                Console.WriteLine("Rage Level not high enough to use Force Drain");
+                Console.WriteLine($"{Name}'s Rage Level is not high enough to use Force Drain");
                 return;
             }
             RageLevel -= cost;

@@ -98,7 +98,7 @@ namespace StarWars
 
             int damage = (int)(AttackPower * (75.0 / (100 + target.Defense)));
             damage = Math.Max(0, damage);
-            Console.WriteLine($"{Name} attacks {target.Name} for {damage} damage ");
+            Console.WriteLine($"{Name} attacks {target.Name} for {damage} damage");
             target.TakeDamage(damage);
         }
 

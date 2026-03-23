@@ -25,7 +25,7 @@ namespace StarWars
             int cost = 15; 
             if (cost > ForcePoints)
             {
-                Console.WriteLine("Not enough Force Points to use Force Push");
+                Console.WriteLine($"{Name} does not have enough Force Points to use Force Push");
                 return;
             }
             ForcePoints -= cost;

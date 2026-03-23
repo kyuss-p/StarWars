@@ -45,7 +45,7 @@ namespace StarWars
             int cost = 20;
             if (cost > ForcePoints)
             {
-                Console.WriteLine("Not enough Force Points to use Force Heal");
+                Console.WriteLine($"{Name} does not have enough Force Points to use Force Heal");
                 return;
             }
             ForcePoints -= cost;

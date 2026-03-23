@@ -46,7 +46,7 @@ namespace StarWars
             int cost = 20;
             if (cost > RageLevel)
             {
-                Console.WriteLine("Rage Level not high enough to use Force Choke");
+                Console.WriteLine($"{Name}'s Rage Level is not high enough to use Force Choke");
                 return;
             }
             RageLevel -= cost;
