@@ -5,7 +5,7 @@ using System.Text;
 
 namespace StarWars
 {
-    internal class Sith : ForceUser
+    public class Sith : ForceUser
     {
         private int _rageLevel;
         public int RageLevel 

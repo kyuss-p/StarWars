@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StarWars
 {
-    internal class Jedi : ForceUser
+    public class Jedi : ForceUser
     {
         private int _forcePoints;
         public int ForcePoints

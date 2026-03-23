@@ -5,7 +5,7 @@ using System.Text;
 
 namespace StarWars
 {
-    internal class Padawan : Jedi
+    public class Padawan : Jedi
     {
         public Jedi Master { get; set; }
 

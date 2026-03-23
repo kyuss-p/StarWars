@@ -5,7 +5,7 @@ using System.Text;
 
 namespace StarWars
 {
-    internal class SithApprentice : Sith
+    public class SithApprentice : Sith
     {
         public Sith Master { get; set; }
 
