@@ -28,9 +28,9 @@ namespace StarWars
             }
         }
 
-        public Droid(int attackPower, int defense, string name, int batteryLevel) : base(attackPower, defense, name)
+        public Droid(int attackPower, int defense, string name) : base(attackPower, defense, name)
         {
-            BatteryLevel = batteryLevel;
+            BatteryLevel = 100;
         }
 
         public void Recharge()
@@ -51,5 +51,10 @@ namespace StarWars
         }
 
         public abstract void DroidAbility(Character target);
+
+        public override string ToString()
+        {
+            return base.ToString() + $" | Battery Level: {BatteryLevel}";
+        }
     }
 }
