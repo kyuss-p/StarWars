@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StarWars
 {
-    internal class BountyHunter : BlasterUser
+    public class BountyHunter : BlasterUser
     {
         public int Kills { get; set; }
 
